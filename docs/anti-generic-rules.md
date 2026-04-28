@@ -9,9 +9,9 @@ La IA tiende al "promedio visual": gradientes azul/morado, tipografías sin alma
 Diseñar desde el negocio, el material y la evidencia real. La identidad visual emana del mundo del **bordado**: hilo, puntadas, textura textil, etiquetas y retículas de confección.
 
 ## Dirección Visual (Inspiración Editorial)
-Inspiración: [bejamas.com](https://bejamas.com/)
+Inspiración: [Estilo Editorial Premium]
 - **Sí:** Composición editorial, mucho espacio en blanco, tipografía grande, secciones numeradas, copy corto y directo, ritmo visual limpio.
-- **No:** Estética fría/tecnológica, branding de Bejamas, estética SaaS.
+- **No:** Estética fría/tecnológica, estética SaaS.
 
 ## Reglas de Diseño
 - **Evitar:** Gradientes startup, glassmorphism, cards repetitivas, íconos Lucide/Heroicons, stock photos obvias, sombras suaves omnipresentes.

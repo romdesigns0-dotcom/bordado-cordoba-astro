@@ -9,5 +9,5 @@
 - **Razón:** El negocio ya no considera los uniformes su servicio principal; se busca priorizar personalización y logos.
 
 ## [2026-04-28] Estilo Visual
-- **Decisión:** Inspiración editorial basada en `bejamas.com`.
-- **Razón:** Buscar una estética premium, limpia y moderna con mucho espacio en blanco.
+- **Decisión:** Inspiración editorial premium.
+- **Razón:** Buscar una estética limpia y moderna con mucho espacio en blanco que eleve la marca.

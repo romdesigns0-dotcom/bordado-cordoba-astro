@@ -3,7 +3,7 @@
 **IMPORTANTE:** Todas las decisiones visuales deben seguir el manifiesto [Anti-Generic AI Website Rules](./anti-generic-rules.md).
 
 ## Referencia Principal
-- **URL:** [bejamas.com](https://bejamas.com/)
+- **URL:** [Pendiente por confirmar]
 
 ## Atributos a emular (Inspiración Editorial):
 - **Espacio en blanco:** Generoso para dar una sensación de limpieza y claridad.
