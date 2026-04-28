@@ -9,8 +9,9 @@ Este documento define las bases estéticas para el proyecto, alejándose de lo g
 - **Neutros:** Gris Cemento claro para texturas de fondo sutiles.
 
 ## 2. Tipografías
-- **Títulos (Display):** Una Serifa con carácter (ej. *Playfair Display* o *Fraunces*) para evocar precisión y calidad comercial-premium.
-- **Cuerpo y Navegación:** Una Sans-Serif geométrica pero cálida (ej. *Outfit* o *Inter* con espaciado amplio) para legibilidad y modernidad comercial.
+- **Títulos (Display):** *Instrument Serif* o *Source Serif 4*. Uso estrictamente editorial y sobrio para mantener el tono comercial-premium.
+- **Cuerpo y UI:** *Instrument Sans*, *Geist* o *DM Sans*. Priorizar legibilidad y un look técnico.
+- **Criterio de Aplicación:** Si el uso de Serif empieza a evocar un sentimiento "handmade" o boutique, se pivotará hacia un uso exclusivo de Sans moderna (*Geist* o *Instrument Sans*) para reforzar el tono industrial.
 
 ## 3. Estilo Fotográfico
 - **Macros:** Enfoque extremo en la textura del hilo y la puntada.

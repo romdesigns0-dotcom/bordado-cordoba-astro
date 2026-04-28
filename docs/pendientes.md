@@ -2,7 +2,7 @@
 
 ## Por Confirmar (Información necesaria)
 - [ ] Definir la paleta de colores oficial.
-- [ ] Definir las tipografías deseadas.
+- [x] Definir las tipografías deseadas (Instrument Serif, Geist, Instrument Sans).
 - [ ] Confirmar número de WhatsApp para el botón de acción.
 - [ ] ¿Se cuenta con logo del negocio en alta resolución/vector?
 - [ ] ¿El cliente tiene fotos propias o necesitamos buscarlas/generarlas?
