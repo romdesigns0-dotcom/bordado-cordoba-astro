@@ -1,0 +1,21 @@
+---
+import { SITE_CONFIG } from '../config/site';
+
+const { gtmId } = SITE_CONFIG;
+
+// Only load Analytics if we have valid IDs
+const isGtmValid = gtmId && gtmId.startsWith('GTM-') && gtmId !== 'GTM-XXXXXXX';
+---
+
+{isGtmValid && (
+  <!-- Google Tag Manager (noscript) -->
+  <noscript>
+    <iframe 
+      src={`https://www.googletagmanager.com/ns.html?id=${gtmId}`}
+      height="0" 
+      width="0" 
+      style="display:none;visibility:hidden">
+    </iframe>
+  </noscript>
+  <!-- End Google Tag Manager (noscript) -->
+)}

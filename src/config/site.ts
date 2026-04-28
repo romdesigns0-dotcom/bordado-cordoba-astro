@@ -9,7 +9,7 @@ export const SITE_CONFIG = {
   // Analytics & Tracking
   // Si se usa GTM, gaMeasurementId no cargará el script directo de GA4 para evitar duplicidad.
   gaMeasurementId: "G-XXXXXXXXXX", // [Pendiente] Google Analytics 4 ID
-  gtmId: "GTM-XXXXXXX", // [Pendiente] Google Tag Manager ID
+  gtmId: "GTM-MCBKSP7R", // Configurado
   
   // Firebase
   firebaseProjectId: "bordados-cordoba"
