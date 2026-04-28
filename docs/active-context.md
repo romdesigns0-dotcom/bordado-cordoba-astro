@@ -9,9 +9,10 @@
 - Definición de estructura de información y recopilación de requerimientos técnicos (bordado industrial/computarizado).
 
 ## Próximos pasos inmediatos
-- [Pendiente por confirmar]
+- Ajustar la estructura de secciones de la landing con base en la estrategia de SEO local.
 
 ## Stack Tecnológico
 - **Framework:** Astro.
-- **Styling:** Tailwind CSS (Pendiente de instalar).
+- **Styling:** Tailwind CSS (Instalado y configurado con @tailwindcss/vite).
+- **Gestor de paquetes:** pnpm.
 - **Hosting:** [No definido todavía]

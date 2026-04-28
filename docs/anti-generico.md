@@ -19,11 +19,15 @@ Reglas estrictas para evitar que el sitio parezca "promedio de internet" o cread
 
 ## 4. Copy Honesto y Directo
 - **Evitar frases vacías:** "Innovación y excelencia", "Comprometidos con tu satisfacción", "Servicio integral".
-- **Usar frases reales:** "Digitalizamos tu logo para bordarlo en 24h", "Personalizamos desde una pieza para regalo hasta lotes para tu marca".
+- **Usar frases reales:** "Digitalizamos tu logo para bordarlo con precisión profesional", "Personalizamos desde una pieza hasta lotes industriales para tu marca".
 
-## 5. Colores de la Tierra y el Hilo
-- Nada de colores "neón" o puramente digitales.
-- Usar colores que podrías encontrar en una tienda de telas o en un taller de costura.
+## 5. Colores Técnicos e Industriales
+- **Blanco Técnico:** Limpio y profesional.
+- **Negro Profundo:** Para contraste máximo.
+- **Gris Frío:** Inspirado en maquinaria y herramientas.
+- **Azul Industrial Oscuro:** Confianza y tecnología.
+- **Acentos Metálicos:** Hilos sobrios y precisos.
+- **Evitar:** Paletas rústicas, kraft, bohemias o handmade.
 
 ---
 **Filtro de Calidad:** Si al quitar el texto "Bordados Córdoba" la sección podría servir para una empresa de software, **entonces la sección está mal diseñada.**
