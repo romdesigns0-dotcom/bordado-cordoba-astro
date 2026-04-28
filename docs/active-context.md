@@ -6,7 +6,7 @@
 - Estructura de contexto establecida.
 
 ## En qué estamos trabajando
-- Definición de estructura de información y recopilación de requerimientos iniciales.
+- Definición de estructura de información y recopilación de requerimientos técnicos (bordado industrial/computarizado).
 
 ## Próximos pasos inmediatos
 - [Pendiente por confirmar]

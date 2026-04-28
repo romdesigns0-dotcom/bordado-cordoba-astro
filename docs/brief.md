@@ -3,7 +3,7 @@
 ## Información General
 - **Cliente:** Bordados Córdoba.
 - **Ubicación:** Oaxaca, México.
-- **Tipo de negocio:** Taller de bordado computarizado.
+- **Tipo de negocio:** Taller de bordado computarizado e industrial.
 
 ## Objetivo del Sitio
 - Generar prospectos mediante cotizaciones directas a **WhatsApp**.
@@ -12,7 +12,7 @@
 - [No definido todavía]
 
 ## Propuesta de Valor
-- [No definido todavía]
+- Bordado computarizado de alta precisión para logos y personalización técnica.
 
 ## Servicios Principales (Confirmados)
 - Bordado computarizado.

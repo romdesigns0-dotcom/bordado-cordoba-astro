@@ -9,5 +9,5 @@
 - **Razón:** El negocio ya no considera los uniformes su servicio principal; se busca priorizar personalización y logos.
 
 ## [2026-04-28] Estilo Visual
-- **Decisión:** Inspiración editorial premium.
-- **Razón:** Buscar una estética limpia y moderna con mucho espacio en blanco que eleve la marca.
+- **Decisión:** Estilo técnico y comercial-premium.
+- **Razón:** Reflejar la precisión de la maquinaria industrial y la consistencia en la producción de logos y textiles.
