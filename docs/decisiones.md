@@ -12,6 +12,6 @@
 - **Decisión:** Priorizar SEO local (Oaxaca) antes de cualquier inversión en publicidad pagada.
 - **Razón:** Establecer una base orgánica sólida y captar tráfico de alta intención de búsqueda en la región.
 
-## [2026-04-28] Google Ads y Medición
-- **Decisión:** Postergar Google Ads hasta tener una landing optimizada y con medición de clics en WhatsApp instalada.
-- **Razón:** Evitar desperdicio de presupuesto y asegurar que el tráfico pagado llegue a un sitio que ya convierte de forma orgánica.
+## [2026-04-28] Estructura Final de Landing
+- **Decisión:** Estructura de 9 secciones (Hero, Servicios, Galería, Proceso, Cotizar, FAQ, Contacto, CTA, Footer).
+- **Razón:** Optimización para SEO local en Oaxaca y enfoque comercial directo a WhatsApp, manteniendo un tono profesional y técnico.

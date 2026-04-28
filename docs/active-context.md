@@ -9,7 +9,7 @@
 - Definición de estructura de información y recopilación de requerimientos técnicos (bordado industrial/computarizado).
 
 ## Próximos pasos inmediatos
-- Ajustar la estructura de secciones de la landing con base en la estrategia de SEO local.
+- Iniciar la implementación técnica de la estructura de la landing (Hero y componentes base).
 
 ## Stack Tecnológico
 - **Framework:** Astro.
