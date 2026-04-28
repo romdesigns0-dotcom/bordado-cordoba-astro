@@ -12,5 +12,8 @@ export const SITE_CONFIG = {
   gtmId: "GTM-MCBKSP7R", // Configurado
   
   // Firebase
-  firebaseProjectId: "bordados-cordoba"
+  firebaseProjectId: "bordados-cordoba",
+  
+  // Social
+  ogImage: "/og/bordados-cordoba-og.png"
 };

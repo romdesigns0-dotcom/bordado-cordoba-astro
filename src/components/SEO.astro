@@ -1,4 +1,5 @@
----
+import { SITE_CONFIG } from '../config/site';
+
 interface Props {
   title?: string;
   description?: string;
@@ -11,7 +12,7 @@ const {
   title = "Bordados Córdoba | Bordado computarizado en Oaxaca",
   description = "Taller de bordado computarizado profesional en Oaxaca. Especialistas en logos, gorras, prendas y textiles personalizados con acabado limpio y precisión profesional.",
   canonical,
-  ogImage = "/og-image-placeholder.jpg", // [Pendiente: Imagen real]
+  ogImage = SITE_CONFIG.ogImage,
   robots = "index, follow"
 } = Astro.props;
 ---
