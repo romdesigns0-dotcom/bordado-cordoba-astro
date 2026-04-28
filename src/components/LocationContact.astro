@@ -53,26 +53,25 @@ const CONTACT_ADDRESS_UI = CONTACT_ADDRESS;
       </div>
     </div>
 
-    <!-- Espacio para Mapa -->
-    <div class="relative min-h-[400px] bg-brand-soft border border-brand-border flex items-center justify-center overflow-hidden">
-      <!-- Decoración técnica background -->
-      <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(var(--color-brand-text) 1px, transparent 1px); background-size: 24px 24px;"></div>
-      
-      <div class="z-10 text-center px-12">
-        <div class="w-16 h-16 border border-brand-border rounded-full flex items-center justify-center mx-auto mb-6">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-brand-border"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-        </div>
-        <p class="text-[10px] uppercase tracking-[0.3em] font-black text-brand-border mb-2">Mapa interactivo</p>
-        <p class="text-brand-secondary text-sm">
-          Estamos preparando nuestra ubicación interactiva. Por ahora, puedes consultarnos directamente por WhatsApp para indicaciones precisas.
-        </p>
-      </div>
+    <!-- Mapa incrustado con estilos -->
+    <div class="relative min-h-[400px] bg-brand-soft border border-brand-border flex items-center justify-center overflow-hidden group">
+      <iframe 
+        class="absolute inset-0 w-full h-full grayscale opacity-80 group-hover:opacity-100 transition-opacity duration-500 [html[data-theme='dark']_&]:invert [html[data-theme='dark']_&]:hue-rotate-180 [html[data-theme='dark']_&]:contrast-125"
+        src="https://maps.google.com/maps?q=Cuauht%C3%A9moc%20111%2C%20Trinidad%20de%20las%20Huertas%2C%20Oaxaca%20de%20Ju%C3%A1rez&t=&z=16&ie=UTF8&iwloc=&output=embed" 
+        style="border:0;" 
+        allowfullscreen="" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
 
-      <!-- Líneas de corte técnico en esquinas -->
-      <div class="absolute top-0 left-0 w-8 h-8 border-t border-l border-brand-border"></div>
-      <div class="absolute top-0 right-0 w-8 h-8 border-t border-r border-brand-border"></div>
-      <div class="absolute bottom-0 left-0 w-8 h-8 border-b border-l border-brand-border"></div>
-      <div class="absolute bottom-0 right-0 w-8 h-8 border-b border-r border-brand-border"></div>
+      <!-- Enlace que cubre todo el iframe para ir al maps real al hacer click (opcional) o dejarlo interactivo. 
+           Si queremos que el usuario pueda mover el mapa, quitamos esto. Lo dejaremos interactivo. -->
+
+      <!-- Líneas de corte técnico en esquinas (sobre el mapa) -->
+      <div class="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-brand-accent z-10 pointer-events-none"></div>
+      <div class="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-brand-accent z-10 pointer-events-none"></div>
+      <div class="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-brand-accent z-10 pointer-events-none"></div>
+      <div class="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-brand-accent z-10 pointer-events-none"></div>
     </div>
   </div>
 </section>
