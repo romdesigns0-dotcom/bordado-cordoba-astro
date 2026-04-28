@@ -16,7 +16,9 @@
 - [x] Implementar Analítica Nativa y Conversiones (Componente Analytics, data-track).
 - [ ] Implementar Galería de trabajos realizados (esperando fotos reales).
 - [ ] Reemplazar IDs de `src/config/site.ts` (Firebase, GTM, GA4, URL) con los valores finales.
-- [ ] Ejecutar despliegue final en Firebase Hosting (`pnpm run deploy:hosting`).
+- [x] Ejecutar `firebase init hosting:github` o crear manualmente el secreto de GitHub para permitir despliegues.
+- [ ] Validar el primer despliegue automático hacia Firebase Hosting en GitHub Actions.
+- [x] Actualizar los `projectId` en `.github/workflows/*.yml` y `site.ts` con el ID final de Firebase.
 - [ ] Configurar `@astrojs/sitemap` y enviar a Google Search Console.
 
 ## Dudas Estratégicas

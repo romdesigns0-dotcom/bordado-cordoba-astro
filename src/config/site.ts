@@ -12,5 +12,5 @@ export const SITE_CONFIG = {
   gtmId: "GTM-XXXXXXX", // [Pendiente] Google Tag Manager ID
   
   // Firebase
-  firebaseProjectId: "bordados-cordoba-placeholder-id" // [Pendiente]
+  firebaseProjectId: "bordados-cordoba"
 };
