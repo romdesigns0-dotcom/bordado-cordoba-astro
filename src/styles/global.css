@@ -102,6 +102,11 @@
     opacity: 0.10;
     pointer-events: none;
     z-index: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  [data-theme="dark"] .technical-grid::before {
+    opacity: 0.15;
   }
   .technical-grid > * {
     position: relative;
