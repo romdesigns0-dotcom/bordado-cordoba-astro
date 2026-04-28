@@ -83,13 +83,17 @@ Este documento define la estrategia para posicionar a Bordados Córdoba en búsq
   "image": "[Pendiente por confirmar - URL logo]",
   "@id": "[Pendiente por confirmar - URL final]",
   "url": "[Pendiente por confirmar - URL final]",
-  "telephone": "[Pendiente por confirmar]",
+  "telephone": "951 207 8403",
+  "openingHours": [
+    "Mo-Fr 11:00-19:30",
+    "Sa 11:00-16:00"
+  ],
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "[Pendiente por confirmar]",
-    "addressLocality": "Oaxaca",
+    "streetAddress": "Cuauhtémoc 111, Trinidad de las Huertas",
+    "addressLocality": "Oaxaca de Juárez",
     "addressRegion": "OAX",
-    "postalCode": "[Pendiente por confirmar]",
+    "postalCode": "68000",
     "addressCountry": "MX"
   },
   "geo": {
@@ -123,16 +127,16 @@ Este documento define la estrategia para posicionar a Bordados Córdoba en búsq
 - [ ] Solicitar reseñas a clientes satisfechos.
 
 ## 12. Google Search Console (Checklist)
-- [ ] Conectar y verificar el dominio.
-- [ ] Enviar el sitemap.xml generado por Astro.
+- [ ] Conectar y verificar el dominio final una vez apuntado a Firebase Hosting.
+- [ ] Enviar el sitemap.xml generado por Astro (o en su defecto dejar placeholder hasta URL final).
 - [ ] Monitorear indexación de la landing.
 - [ ] Revisar consultas (queries) para ajustar copy SEO.
+- **Nota**: Leer `docs/analytics.md` para detalles técnicos de medición previos a GSC.
 
 ## 13. Medición de Conversiones
-- [ ] Clics en botón de WhatsApp (Evento principal).
-- [ ] Clics en el número de teléfono.
-- [ ] Clics en el enlace de "Cómo llegar" (Mapa).
-- [ ] Análisis de procedencia de tráfico (SEO vs Directo).
+- [x] Implementado: Clics en botones de WhatsApp (Evento principal `whatsapp_click`).
+- [ ] Pendiente: Enlace de "Cómo llegar" (Mapa) cuando exista URL del mapa.
+- [ ] Pendiente: Análisis de procedencia de tráfico en GA4.
 
 ## 14. Estrategia Google Ads (Futuro)
 - No se recomienda invertir en Ads hasta que:

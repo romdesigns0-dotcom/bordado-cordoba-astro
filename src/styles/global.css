@@ -1,1 +1,110 @@
 @import "tailwindcss";
+
+@theme {
+  /* Mapeo de Tailwind a variables semánticas CSS */
+  --color-brand-bg: var(--surface);
+  --color-brand-soft: var(--surface-soft);
+  --color-brand-invert: var(--surface-invert);
+  --color-brand-text: var(--text);
+  --color-brand-muted: var(--text-muted);
+  --color-brand-text-invert: var(--text-invert);
+  --color-brand-accent: var(--accent);
+  --color-brand-border: var(--line);
+
+  --font-display: "Montserrat Variable", system-ui, sans-serif;
+  --font-sans: "Montserrat Variable", system-ui, sans-serif;
+}
+
+
+@layer base {
+  :root {
+    --brand-graphite: #1C1C1A;
+    --brand-ivory: #F4EFE6;
+    --brand-bronze: #B08A57;
+    --brand-white: #FAFAFA;
+    --brand-line: #D8D2C8;
+  }
+
+  :root,
+  [data-theme="light"] {
+    --surface: var(--brand-white);
+    --surface-soft: var(--brand-ivory);
+    --surface-invert: var(--brand-graphite);
+    --text: var(--brand-graphite);
+    --text-muted: #4B4B46;
+    --text-invert: var(--brand-ivory);
+    --line: var(--brand-line);
+    --accent: var(--brand-bronze);
+    --button-bg: var(--brand-graphite);
+    --button-text: var(--brand-ivory);
+    --button-border: var(--brand-graphite);
+    --logo-horizontal: url("/brand/logo-grafito.svg");
+    --logo-vertical: url("/brand/logo-vertical-grafito.svg");
+    --logo-isotipo: url("/brand/isotipo-grafito.svg");
+  }
+
+  [data-theme="dark"] {
+    --surface: var(--brand-graphite);
+    --surface-soft: #252522;
+    --surface-invert: var(--brand-ivory);
+    --text: var(--brand-ivory);
+    --text-muted: #C8C0B2;
+    --text-invert: var(--brand-graphite);
+    --line: #3A3A35;
+    --accent: var(--brand-bronze);
+    --button-bg: var(--brand-ivory);
+    --button-text: var(--brand-graphite);
+    --button-border: var(--brand-ivory);
+    --logo-horizontal: url("/brand/logo-marfil.svg");
+    --logo-vertical: url("/brand/logo-vertical-marfil.svg");
+    --logo-isotipo: url("/brand/isotipo-marfil.svg");
+  }
+
+  body {
+    background-color: var(--surface);
+    color: var(--text);
+    @apply font-sans antialiased transition-colors duration-300;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-normal;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    background-color: var(--button-bg);
+    color: var(--button-text);
+    border: 1px solid var(--button-border);
+    @apply inline-flex items-center justify-center px-8 py-3 font-medium transition-all hover:bg-brand-accent hover:text-brand-text hover:border-brand-accent active:scale-95;
+  }
+
+  .btn-secondary {
+    background-color: transparent;
+    color: var(--text);
+    border: 1px solid var(--line);
+    @apply inline-flex items-center justify-center px-8 py-3 font-medium transition-all hover:bg-brand-text hover:text-brand-text-invert hover:border-brand-text active:scale-95;
+  }
+
+  .section-line {
+    border-top: 1px solid var(--line);
+  }
+
+  .technical-grid {
+    position: relative;
+  }
+  .technical-grid::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(var(--text) 1px, transparent 1px);
+    background-size: 24px 24px;
+    opacity: 0.10;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .technical-grid > * {
+    position: relative;
+    z-index: 10;
+  }
+}

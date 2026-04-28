@@ -2,23 +2,41 @@
 
 Este documento define las bases estéticas para el proyecto, alejándose de lo genérico y centrándose en el mundo textil.
 
-## 1. Paleta Técnica Premium (Propuesta Final)
-- **Fondo (Background):** `#FAFAFA` (Blanco técnico neutro). Limpio, profesional y sin distracciones.
-- **Texto (Foreground):** `#0A0A0A` (Negro profundo). Contraste máximo para legibilidad técnica.
-- **Acento (Accent):** `#1D4ED8` (Azul Industrial). Evoca confianza, tecnología y precisión profesional.
-- **Secundario:** `#4B5563` (Gris Frío). Para información secundaria y etiquetas técnicas.
-- **Botones (CTA):** Fondo `#0A0A0A` con texto `#FFFFFF`. Un look sólido, directo y de alto contraste.
-- **Bordes y Líneas:** `#D1D5DB` (Gris claro técnico). Líneas finas de 1px que separan secciones como planos técnicos.
+## 1. Paleta Oficial de Identidad y UI
+- **Grafito Principal (`#1C1C1A`):** Texto principal, versión oscura del logo sobre fondo claro, fondos oscuros, botones principales, líneas fuertes. Reemplaza el negro puro para aportar mayor calidez y elegancia premium.
+- **Marfil / Hueso (`#F4EFE6`):** Versión clara del logo sobre fondo oscuro, fondos cálidos, texto sobre fondo grafito, bloques premium. Aporta sofisticación frente al blanco puro.
+- **Bronce Hilo (`#B08A57`):** Detalle tipo hilo/puntada del isotipo, acentos sutiles, líneas finas seleccionadas, detalles de marca. Se utiliza con mesura como acento secundario, no como color dominante. Reemplaza por completo el azul eléctrico.
+- **Blanco Técnico (`#FAFAFA`):** Fondos claros cuando se necesite una versión más limpia o neutra (ej. áreas técnicas de alta lectura).
+- **Gris Línea (`#D8D2C8`):** Bordes, divisores, retículas sutiles y líneas técnicas de 1px.
 
-## 2. Tipografías
-- **Títulos (Display):** *Instrument Serif* o *Source Serif 4*. Uso estrictamente editorial y sobrio para mantener el tono comercial-premium.
-- **Cuerpo y UI:** *Instrument Sans*, *Geist* o *DM Sans*. Priorizar legibilidad y un look técnico.
-- **Criterio de Aplicación:** Si el uso de Serif empieza a evocar un sentimiento "handmade" o boutique, se pivotará hacia un uso exclusivo de Sans moderna (*Geist* o *Instrument Sans*) para reforzar el tono industrial.
+**Reglas de Uso de Identidad:**
+- El logo prioriza el uso monocromo.
+- Sobre fondos claros (Marfil/Blanco Técnico): Usar la versión Grafito del logo.
+- Sobre fondos oscuros (Grafito): Usar la versión Marfil del logo.
+- El Azul Industrial previo ha sido retirado completamente de la identidad para alinear con la nueva madurez de la marca.
 
-## 3. Estilo Visual
-- **Concepto:** "Precisión Industrial". El diseño debe sentirse como una ficha técnica de alta gama.
-- **Atributos:** Técnico, preciso, limpio, industrial, comercial-premium.
-- **Evitar:** Cualquier cosa que parezca "hecho a mano", rústico o bohemio.
+## 2. Sistema de Temas (Tokens Semánticos)
+El proyecto utiliza un sistema de diseño basado en **Tokens Semánticos CSS** para soportar temas dinámicos (Claro y Oscuro) sin duplicación de código ni sobreescritura manual de variables por componente.
+
+Los tokens globales están definidos en `src/styles/global.css`:
+- `--surface`: Fondo principal (cambia de Blanco Técnico a Grafito).
+- `--surface-soft`: Fondos secundarios o de contraste sutil (cambia de Marfil a un Grafito más claro).
+- `--surface-invert`: Secciones que fuerzan alto contraste (siempre invertido al tema actual).
+- `--text`: Texto principal.
+- `--text-invert`: Texto forzado para contraste invertido.
+- `--line`: Bordes y divisorias técnicas.
+- `--accent`: Color de acento constante (Bronce Hilo).
+- `--logo-horizontal`: Path dinámico del logo, el cual se renderiza con `background-image` para que el navegador cambie automáticamente el activo al alternar entre `[data-theme="light"]` y `[data-theme="dark"]`.
+
+## 2. Tipografías (Unificadas)
+- **Familia Principal:** *Montserrat* (Geometric Sans-Serif).
+- **Justificación:** La marca exige un carácter técnico, limpio y de precisión industrial. La tipografía Montserrat aporta legibilidad, estructura geométrica (alineada al nuevo isotipo) y consistencia.
+- **Jerarquías:**
+  - *Títulos (Display)*: Montserrat SemiBold (600) o Bold (700). Tracking sutil (`tracking-tight`) y leading amplio (`leading-[1.1]`).
+  - *Cuerpo (Body)*: Montserrat Regular (400).
+  - *Botones y CTA*: Montserrat SemiBold (600) con alto contraste.
+  - *Microcopy / Etiquetas*: Montserrat Medium (500) con tracking moderado (uppercase).
+- **Prohibiciones:** Queda terminantemente prohibido el uso de tipografías Serif (tipo *Instrument Serif*), itálicas exageradas o efectos editoriales que evoquen estética de marca artesanal, boutique o "handmade".
 
 ## 4. Reglas Visuales y Composición
 - **Líneas Técnicas:** Uso de líneas finas (1px) para delimitar secciones y dar estructura de plano técnico.

@@ -1,0 +1,64 @@
+---
+import SectionLabel from './SectionLabel.astro';
+import ServiceItem from './ServiceItem.astro';
+
+const services = [
+  {
+    id: "01",
+    title: "Bordado de logos para negocios y marcas",
+    description: "Logos bordados para marcas, negocios locales, restaurantes, hoteles, escuelas y emprendimientos."
+  },
+  {
+    id: "02",
+    title: "Gorras bordadas y prendas personalizadas",
+    description: "Personalización de gorras, camisas, playeras, batas, mandiles y otras prendas bajo cotización."
+  },
+  {
+    id: "03",
+    title: "Nombres e iniciales",
+    description: "Bordado de nombres, iniciales y detalles personalizados para piezas individuales o pedidos especiales."
+  },
+  {
+    id: "04",
+    title: "Textiles personalizados",
+    description: "Bordado en toallas, batas, mandiles, servilletas u otros textiles para uso comercial o personal."
+  },
+  {
+    id: "05",
+    title: "Digitalización y ponchado para bordado",
+    description: "Preparamos tu diseño para convertirlo en puntadas claras y bordables."
+  }
+];
+---
+
+<section id="servicios" class="max-w-7xl mx-auto px-6 py-24 md:py-32">
+  <!-- Etiqueta Técnica Superior -->
+  <SectionLabel number="01" text="Servicios" />
+  
+  <div class="grid grid-cols-1 lg:grid-cols-[1fr_400px] gap-12 mb-20 items-end">
+    <h2 class="text-5xl md:text-7xl lg:text-8xl tracking-tight leading-[1.1]">
+      Servicios de <br />
+      <span class="text-brand-accent">bordado</span> personalizado
+    </h2>
+    <p class="text-brand-secondary text-lg md:text-xl leading-relaxed border-l border-brand-border pl-8">
+      Bordamos logos, nombres y diseños sobre prendas, gorras y textiles con un proceso limpio, preciso y preparado para cada tipo de pieza.
+    </p>
+  </div>
+
+  <!-- Contenedor de Servicios (Sin cards, estilo editorial) -->
+  <div class="border-t border-brand-border">
+    {services.map((service) => (
+      <ServiceItem 
+        id={service.id} 
+        title={service.title} 
+        description={service.description} 
+      />
+    ))}
+  </div>
+
+  <!-- Pie de sección técnico -->
+  <div class="mt-20 flex justify-between items-center text-[10px] uppercase tracking-[0.3em] text-brand-border font-bold">
+    <span>Bordado Computarizado en Oaxaca</span>
+    <span>Consistencia Industrial</span>
+  </div>
+</section>

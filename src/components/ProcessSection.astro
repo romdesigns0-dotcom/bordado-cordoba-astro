@@ -1,0 +1,75 @@
+---
+import SectionLabel from './SectionLabel.astro';
+
+const steps = [
+  {
+    id: "01",
+    title: "Envías tu diseño o referencia",
+    description: "Puede ser un logo, nombre, imagen o idea. Entre más clara sea la referencia, mejor se puede cotizar."
+  },
+  {
+    id: "02",
+    title: "Revisamos la viabilidad del bordado",
+    description: "Analizamos tamaño, nivel de detalle, tipo de prenda y ubicación del bordado."
+  },
+  {
+    id: "03",
+    title: "Preparamos el archivo para bordado",
+    description: "Digitalizamos o ajustamos el diseño para convertirlo en puntadas claras y bordables mediante digitalización (ponchado)."
+  },
+  {
+    id: "04",
+    title: "Bordamos en la prenda o textil",
+    description: "Aplicamos el bordado computarizado con maquinaria profesional y cuidamos la limpieza del acabado limpio."
+  },
+  {
+    id: "05",
+    title: "Entregamos tu pieza o pedido",
+    description: "Te avisamos cuando esté listo y confirmamos los detalles de entrega de tu pedido personalizado en Oaxaca."
+  }
+];
+---
+
+<section id="proceso" class="border-t border-brand-border bg-brand-soft technical-grid relative overflow-hidden">
+  <div class="max-w-7xl mx-auto px-6 py-24 md:py-32">
+    <SectionLabel number="03" text="Proceso Técnico" />
+
+    <div class="grid grid-cols-1 lg:grid-cols-[1fr_450px] gap-12 mb-24">
+      <h2 class="text-5xl md:text-7xl lg:text-8xl tracking-tight leading-[1.1]">
+        De tu diseño al <br />
+        <span class="text-brand-accent">bordado</span> terminado
+      </h2>
+      <div class="flex flex-col justify-end">
+        <p class="text-brand-secondary text-xl md:text-2xl leading-relaxed border-l-2 border-brand-accent pl-8 py-2">
+          Convertimos tu logo, nombre o referencia en un archivo preparado para bordado y lo aplicamos sobre la prenda o textil adecuado con precisión profesional.
+        </p>
+      </div>
+    </div>
+
+    <!-- Pasos del Proceso -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-px bg-brand-border border border-brand-border">
+      {steps.map((step) => (
+        <div class="bg-brand-bg p-10 flex flex-col min-h-[350px] transition-all hover:bg-brand-soft relative group">
+          <span class="text-6xl md:text-7xl font-sans font-black text-brand-text opacity-10 mb-8 tracking-tight group-hover:text-brand-accent group-hover:opacity-20 transition-all">
+            {step.id}
+          </span>
+          
+          <h3 class="text-2xl md:text-3xl font-display mb-6 leading-tight">
+            {step.title}
+          </h3>
+          
+          <p class="text-base md:text-lg text-brand-secondary leading-relaxed mt-auto">
+            {step.description}
+          </p>
+
+          <!-- Detalle decorativo técnico -->
+          <div class="absolute top-0 right-0 w-8 h-8 border-t border-r border-brand-border opacity-0 group-hover:opacity-100 transition-opacity"></div>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <!-- Líneas de estructura técnica fondo -->
+  <div class="absolute top-0 left-1/4 w-px h-full bg-brand-border/10 hidden lg:block"></div>
+  <div class="absolute top-0 right-1/4 w-px h-full bg-brand-border/10 hidden lg:block"></div>
+</section>

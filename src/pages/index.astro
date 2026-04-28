@@ -1,11 +1,105 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import ServiceList from '../components/ServiceList.astro';
+import ProcessSection from '../components/ProcessSection.astro';
+import QuoteSteps from '../components/QuoteSteps.astro';
+import FAQSection from '../components/FAQSection.astro';
+import LocationContact from '../components/LocationContact.astro';
+import FinalCTA from '../components/FinalCTA.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppButton from '../components/WhatsAppButton.astro';
+import SectionLabel from '../components/SectionLabel.astro';
+import JsonLd from '../components/JsonLd.astro';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const faqData = {
+	"@context": "https://schema.org",
+	"@type": "FAQPage",
+	"mainEntity": [
+		{
+			"@type": "Question",
+			"name": "¿Qué necesito enviar para cotizar un bordado?",
+			"acceptedAnswer": {
+				"@type": "Answer",
+				"text": "Para orientarte mejor, envíanos tu logo, imagen o referencia, el tipo de prenda o textil, cantidad de piezas, tamaño aproximado y ubicación del bordado."
+			}
+		},
+		{
+			"@type": "Question",
+			"name": "¿Pueden bordar mi logo aunque solo tenga una imagen?",
+			"acceptedAnswer": {
+				"@type": "Answer",
+				"text": "Podemos revisar tu imagen y decirte si es viable para bordado. En algunos casos se requiere preparar o digitalizar el diseño mediante un proceso técnico antes de bordarlo."
+			}
+		},
+		{
+			"@type": "Question",
+			"name": "¿Qué es el ponchado o digitalización para bordado?",
+			"acceptedAnswer": {
+				"@type": "Answer",
+				"text": "Es preparar tu logo o diseño para que pueda bordarse correctamente. En este proceso se ajustan detalles como tamaño, líneas y puntadas para lograr un resultado limpio."
+			}
+		},
+		{
+			"@type": "Question",
+			"name": "¿Bordan gorras?",
+			"acceptedAnswer": {
+				"@type": "Answer",
+				"text": "Sí, se pueden bordar gorras bajo cotización, dependiendo del tipo de gorra, complejidad del diseño y ubicación del bordado."
+			}
+		},
+		{
+			"@type": "Question",
+			"name": "¿Bordan nombres o iniciales?",
+			"acceptedAnswer": {
+				"@type": "Answer",
+				"text": "Sí, realizamos bordado personalizado de nombres, iniciales o detalles específicos en prendas y textiles compatibles."
+			}
+		},
+		{
+			"@type": "Question",
+			"name": "¿Qué tipo de prendas o textiles se pueden bordar?",
+			"acceptedAnswer": {
+				"@type": "Answer",
+				"text": "Se pueden bordar prendas como camisas, playeras, batas, mandiles, toallas y gorras. La viabilidad depende del material, el diseño y el tamaño requerido."
+			}
+		},
+		{
+			"@type": "Question",
+			"name": "¿Cuánto tarda un bordado?",
+			"acceptedAnswer": {
+				"@type": "Answer",
+				"text": "El tiempo depende del diseño, cantidad de piezas, material y carga de trabajo actual. Podemos orientarte mejor sobre los tiempos al revisar tu proyecto por WhatsApp."
+			}
+		}
+	]
+};
+
+// Welcome to Astro! Gratuitous greeting.
 ---
 
 <Layout>
-	<Welcome />
+	<JsonLd data={faqData} />
+	<Header />
+	
+	<main>
+		<Hero />
+		
+		<ServiceList />
+
+		<ProcessSection />
+
+		<QuoteSteps />
+
+		<FAQSection />
+
+		<LocationContact />
+		
+		<FinalCTA />
+	</main>
+
+	<Footer />
+
+	<WhatsAppButton />
 </Layout>

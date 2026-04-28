@@ -1,0 +1,68 @@
+---
+import { SITE_CONFIG } from '../config/site';
+
+const { gtmId, gaMeasurementId } = SITE_CONFIG;
+
+// Only load Analytics if we have valid IDs (not the placeholders)
+const isGtmValid = gtmId && gtmId.startsWith('GTM-') && gtmId !== 'GTM-XXXXXXX';
+const isGaValid = gaMeasurementId && gaMeasurementId.startsWith('G-') && gaMeasurementId !== 'G-XXXXXXXXXX';
+---
+
+{isGtmValid ? (
+  <!-- Google Tag Manager -->
+  <script is:inline define:vars={{ gtmId }}>
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer',gtmId);
+  </script>
+  <!-- End Google Tag Manager -->
+) : isGaValid ? (
+  <!-- Google Analytics (Global site tag) -->
+  <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`}></script>
+  <script is:inline define:vars={{ gaMeasurementId }}>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', gaMeasurementId);
+  </script>
+) : null}
+
+<!-- Conversion Tracking Script -->
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Escuchar clics en todos los elementos con data-track
+    const trackableElements = document.querySelectorAll('[data-track]');
+    
+    trackableElements.forEach(element => {
+      element.addEventListener('click', (e) => {
+        const eventName = element.getAttribute('data-track');
+        const ctaLocation = element.getAttribute('data-cta-location') || 'unknown';
+        const linkUrl = element.getAttribute('href') || '';
+        
+        // Push a dataLayer si GTM está activo
+        if (typeof window.dataLayer !== 'undefined') {
+          window.dataLayer.push({
+            event: eventName,
+            cta_location: ctaLocation,
+            link_url: linkUrl,
+            page_location: window.location.href,
+            event_category: 'conversion',
+            event_label: element.textContent?.trim() || ctaLocation
+          });
+        } 
+        // Fallback directo a gtag si GA4 se usa sin GTM
+        else if (typeof window.gtag === 'function') {
+          window.gtag('event', eventName, {
+            cta_location: ctaLocation,
+            link_url: linkUrl,
+            page_location: window.location.href,
+            event_category: 'conversion',
+            event_label: element.textContent?.trim() || ctaLocation
+          });
+        }
+      });
+    });
+  });
+</script>

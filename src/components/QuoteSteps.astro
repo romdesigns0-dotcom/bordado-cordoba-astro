@@ -1,0 +1,82 @@
+---
+import SectionLabel from './SectionLabel.astro';
+import { WHATSAPP_LINK_WITH_MESSAGE } from '../consts';
+
+const steps = [
+  {
+    id: "01",
+    title: "Diseño o referencia",
+    description: "Envíanos tu logo, imagen, nombre o una idea clara de lo que quieres bordar."
+  },
+  {
+    id: "02",
+    title: "Tipo de prenda o textil",
+    description: "Indícanos si el bordado será en gorras, camisas, toallas, mandiles u otro material."
+  },
+  {
+    id: "03",
+    title: "Cantidad de piezas",
+    description: "Indica si necesitas una pieza, varias piezas o un pedido por volumen."
+  },
+  {
+    id: "04",
+    title: "Tamaño aproximado",
+    description: "Una medida aproximada nos ayuda a orientar mejor la cotización."
+  },
+  {
+    id: "05",
+    title: "Ubicación del bordado",
+    description: "¿En qué parte de la prenda va el bordado? Frente, espalda, manga, lateral, etc."
+  },
+  {
+    id: "06",
+    title: "Fecha límite opcional",
+    description: "Si necesitas el bordado para una fecha específica, coméntanoslo al cotizar."
+  }
+];
+---
+
+<section id="cotizar" class="max-w-7xl mx-auto px-6 py-24 md:py-32 border-t border-brand-border">
+  <SectionLabel number="05" text="Cotización" />
+
+  <div class="grid grid-cols-1 lg:grid-cols-[1fr_400px] gap-12 mb-20">
+    <div>
+      <h2 class="text-4xl md:text-7xl lg:text-8xl tracking-tight leading-[1.1] mb-8">
+        Cómo cotizar tu <br />
+        <span class="text-brand-accent">bordado</span> por WhatsApp
+      </h2>
+      <p class="text-brand-secondary text-xl md:text-2xl leading-relaxed max-w-2xl">
+        Para orientarte mejor por WhatsApp, envíanos los datos básicos de tu bordado. Si tienes una fecha específica, también puedes mencionarla.
+      </p>
+    </div>
+    <div class="flex flex-col justify-end">
+      <div class="p-6 border border-brand-border bg-brand-soft text-brand-secondary text-sm font-sans uppercase tracking-widest leading-loose">
+        <span class="block mb-2 font-black text-brand-accent">Nota técnica:</span>
+        No necesitas tener todo perfecto. Con un logo, imagen o referencia podemos empezar a orientarte.
+      </div>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
+    {steps.map((step) => (
+      <div class="group border-b border-brand-border pb-8 hover:border-brand-accent transition-colors duration-500">
+        <span class="text-xs font-sans font-black text-brand-accent mb-4 block">
+          [{step.id}]
+        </span>
+        <h3 class="text-xl md:text-2xl font-display mb-3 group-hover:text-brand-accent transition-colors">
+          {step.title}
+        </h3>
+        <p class="text-brand-secondary leading-relaxed">
+          {step.description}
+        </p>
+      </div>
+    ))}
+  </div>
+
+  <div class="mt-20 text-center">
+    <a href={WHATSAPP_LINK_WITH_MESSAGE} target="_blank" rel="noopener noreferrer" class="btn-primary text-xl md:text-2xl !px-12 !py-6 group" data-track="whatsapp_click" data-cta-location="quote_steps">
+      Enviar datos por WhatsApp
+      <svg xmlns="http://www.w3.org/2000/svg" class="ml-4 w-6 h-6 transition-transform group-hover:translate-x-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+    </a>
+  </div>
+</section>

@@ -1,0 +1,29 @@
+---
+import { WHATSAPP_LINK } from '../consts';
+import ThemeToggle from './ThemeToggle.astro';
+---
+
+<header class="fixed top-0 left-0 w-full z-50 bg-brand-bg/80 backdrop-blur-sm border-b border-brand-border transition-colors duration-300">
+  <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+    <a href="/" class="flex items-center gap-2 hover:opacity-80 transition-opacity" aria-label="Bordados Córdoba Inicio">
+      <div class="h-8 md:h-10 w-48 md:w-56 bg-contain bg-no-repeat bg-left" style="background-image: var(--logo-horizontal);"></div>
+    </a>
+
+    <nav class="hidden md:flex items-center gap-10">
+      <a href="#servicios" class="text-sm font-medium hover:text-brand-accent transition-colors uppercase tracking-widest">Servicios</a>
+      <a href="#cotizar" class="text-sm font-medium hover:text-brand-accent transition-colors uppercase tracking-widest">Cotizar</a>
+    </nav>
+
+    <div class="flex items-center gap-4">
+      <ThemeToggle />
+      <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" class="btn-primary text-xs !px-4 !py-2" data-track="whatsapp_click" data-cta-location="header">
+        WhatsApp
+      </a>
+      <button class="md:hidden p-2 text-brand-text" aria-label="Menu">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="h-20"></div> <!-- Spacer for fixed header -->

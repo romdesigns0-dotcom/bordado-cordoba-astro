@@ -1,0 +1,85 @@
+---
+import SectionLabel from './SectionLabel.astro';
+
+const faqs = [
+  {
+    question: "¿Qué necesito enviar para cotizar un bordado?",
+    answer: "Para orientarte mejor, envíanos tu logo, imagen o referencia, el tipo de prenda o textil, cantidad de piezas, tamaño aproximado y ubicación del bordado."
+  },
+  {
+    question: "¿Pueden bordar mi logo aunque solo tenga una imagen?",
+    answer: "Podemos revisar tu imagen y decirte si es viable para bordado. En algunos casos se requiere preparar o digitalizar el diseño mediante un proceso técnico antes de bordarlo."
+  },
+  {
+    question: "¿Qué es el ponchado o digitalización para bordado?",
+    answer: "Es preparar tu logo o diseño para que pueda bordarse correctamente. En este proceso se ajustan detalles como tamaño, líneas y puntadas para lograr un resultado limpio."
+  },
+  {
+    question: "¿Bordan gorras?",
+    answer: "Sí, se pueden bordar gorras bajo cotización, dependiendo del tipo de gorra, complejidad del diseño y ubicación del bordado."
+  },
+  {
+    question: "¿Bordan nombres o iniciales?",
+    answer: "Sí, realizamos bordado personalizado de nombres, iniciales o detalles específicos en prendas y textiles compatibles."
+  },
+  {
+    question: "¿Qué tipo de prendas o textiles se pueden bordar?",
+    answer: "Se pueden bordar prendas como camisas, playeras, batas, mandiles, toallas y gorras. La viabilidad depende del material, el diseño y el tamaño requerido."
+  },
+  {
+    question: "¿Cuánto tarda un bordado?",
+    answer: "El tiempo depende del diseño, cantidad de piezas, material y carga de trabajo actual. Podemos orientarte mejor sobre los tiempos al revisar tu proyecto por WhatsApp."
+  },
+  {
+    question: "¿Dónde están ubicados en Oaxaca?",
+    answer: "Estamos ubicados en Cuauhtémoc 111, Trinidad de las Huertas, Oaxaca. Puedes consultarnos por WhatsApp para obtener la ubicación exacta o indicaciones para llegar."
+  }
+];
+---
+
+<section id="faq" class="max-w-7xl mx-auto px-6 py-24 md:py-32">
+  <SectionLabel number="06" text="FAQ" />
+
+  <div class="max-w-4xl">
+    <h2 class="text-5xl md:text-7xl lg:text-8xl tracking-tight leading-[1.1] mb-8">
+      Preguntas frecuentes sobre <br />
+      <span class="text-brand-accent">bordados</span> en Oaxaca
+    </h2>
+    <p class="text-brand-secondary text-xl md:text-2xl leading-relaxed mb-16">
+      Resolvemos las dudas más comunes antes de cotizar un bordado personalizado.
+    </p>
+
+    <div class="border-t border-brand-border">
+      {faqs.map((faq) => (
+        <details class="group border-b border-brand-border overflow-hidden">
+          <summary class="flex items-center justify-between p-6 md:p-8 cursor-pointer list-none hover:bg-brand-soft transition-colors duration-300">
+            <h3 class="text-xl md:text-2xl font-display group-open:text-brand-accent transition-colors">
+              {faq.question}
+            </h3>
+            <span class="transition-transform duration-500 group-open:rotate-180 text-brand-border group-hover:text-brand-accent">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </span>
+          </summary>
+          <div class="px-6 md:px-8 pb-8 md:pb-12 text-brand-secondary text-lg leading-relaxed animate-slide-down">
+            {faq.answer}
+          </div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  @keyframes slide-down {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate-slide-down {
+    animation: slide-down 0.4s ease-out forwards;
+  }
+  
+  /* Remove default arrow in Safari */
+  summary::-webkit-details-marker {
+    display: none;
+  }
+</style>

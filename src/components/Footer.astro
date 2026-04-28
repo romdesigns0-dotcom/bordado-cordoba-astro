@@ -1,0 +1,77 @@
+---
+import { WHATSAPP_NUMBER, WHATSAPP_LINK, CONTACT_ADDRESS, CONTACT_SCHEDULE } from '../consts';
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="bg-brand-bg border-t border-brand-border py-20 md:py-24">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-16 mb-20">
+      
+      <!-- Marca y Eslogan -->
+      <div class="lg:col-span-1">
+        <a href="/" class="flex items-center gap-2 mb-6 hover:opacity-80 transition-opacity w-max" aria-label="Bordados Córdoba Inicio">
+          <div class="h-8 md:h-10 w-48 md:w-56 bg-contain bg-no-repeat bg-left" style="background-image: var(--logo-horizontal);"></div>
+        </a>
+        <p class="text-brand-secondary text-base leading-relaxed max-w-xs">
+          Bordado computarizado en Oaxaca. Precisión profesional y acabados limpios para marcas y personas.
+        </p>
+      </div>
+
+      <!-- Navegación -->
+      <div>
+        <h4 class="text-[10px] uppercase tracking-[0.3em] font-black text-brand-text mb-8">Navegación</h4>
+        <ul class="space-y-4">
+          <li><a href="#servicios" class="text-base text-brand-text/80 hover:text-brand-accent transition-colors">Servicios</a></li>
+          <li><a href="#proceso" class="text-base text-brand-text/80 hover:text-brand-accent transition-colors">Proceso técnico</a></li>
+          <li><a href="#faq" class="text-base text-brand-text/80 hover:text-brand-accent transition-colors">Preguntas frecuentes</a></li>
+          <li><a href="#cotizar" class="text-base text-brand-text/80 hover:text-brand-accent transition-colors">Cotizar</a></li>
+        </ul>
+      </div>
+
+      <!-- Servicios -->
+      <div>
+        <h4 class="text-[10px] uppercase tracking-[0.3em] font-black text-brand-text mb-8">Servicios principales</h4>
+        <ul class="space-y-4">
+          <li><span class="text-base text-brand-text/80">Bordado de logos</span></li>
+          <li><span class="text-base text-brand-text/80">Gorras bordadas</span></li>
+          <li><span class="text-base text-brand-text/80">Nombres e iniciales</span></li>
+          <li><span class="text-base text-brand-text/80">Textiles personalizados</span></li>
+          <li><span class="text-base text-brand-text/80">Digitalización para bordado</span></li>
+        </ul>
+      </div>
+
+      <!-- Contacto -->
+      <div>
+        <h4 class="text-[10px] uppercase tracking-[0.3em] font-black text-brand-text mb-8">Contacto</h4>
+        <ul class="space-y-6">
+          <li class="text-base text-brand-secondary">
+            <span class="block text-brand-text font-bold mb-1 uppercase text-[10px] tracking-widest">WhatsApp</span>
+            <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" class="hover:text-brand-accent transition-colors">
+              {WHATSAPP_NUMBER}
+            </a>
+          </li>
+          <li class="text-base text-brand-secondary">
+            <span class="block text-brand-text font-bold mb-1 uppercase text-[10px] tracking-widest">Dirección</span>
+            {CONTACT_ADDRESS}
+          </li>
+          <li class="text-base text-brand-secondary">
+            <span class="block text-brand-text font-bold mb-1 uppercase text-[10px] tracking-widest">Horario</span>
+            {CONTACT_SCHEDULE}
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Barra Inferior -->
+    <div class="pt-12 border-t border-brand-border flex flex-col md:flex-row justify-between items-center gap-6">
+      <p class="text-xs uppercase tracking-[0.2em] text-brand-secondary font-medium">
+        &copy; {currentYear} Bordados Córdoba. Oaxaca, México.
+      </p>
+      <div class="flex gap-8">
+        <span class="text-xs uppercase tracking-[0.2em] text-brand-border">Bordado Industrial</span>
+        <span class="text-xs uppercase tracking-[0.2em] text-brand-border">Logos, gorras y textiles</span>
+      </div>
+    </div>
+  </div>
+</footer>

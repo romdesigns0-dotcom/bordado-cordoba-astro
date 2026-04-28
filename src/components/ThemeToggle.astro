@@ -1,0 +1,107 @@
+---
+---
+
+<div class="relative inline-block text-left" id="theme-toggle-container">
+  <button 
+    id="theme-toggle-btn" 
+    class="flex items-center justify-center w-8 h-8 rounded-full border border-brand-border bg-brand-bg text-brand-text hover:bg-brand-soft hover:border-brand-accent transition-colors focus:outline-none focus:ring-2 focus:ring-brand-accent focus:ring-offset-2 focus:ring-offset-brand-bg"
+    aria-label="Cambiar tema"
+    aria-expanded="false"
+    aria-haspopup="true"
+  >
+    <!-- Sun icon (Light) -->
+    <svg id="icon-light" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden">
+      <circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+    <!-- Moon icon (Dark) -->
+    <svg id="icon-dark" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+    </svg>
+    <!-- System icon (Auto) -->
+    <svg id="icon-system" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden">
+      <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line>
+    </svg>
+  </button>
+
+  <div 
+    id="theme-dropdown" 
+    class="absolute right-0 mt-2 w-36 rounded-md shadow-lg bg-brand-bg border border-brand-border ring-1 ring-black ring-opacity-5 hidden z-50 overflow-hidden"
+    role="menu"
+    aria-orientation="vertical"
+    aria-labelledby="theme-toggle-btn"
+  >
+    <div class="py-1" role="none">
+      <button class="theme-option w-full text-left px-4 py-2 text-sm text-brand-text hover:bg-brand-soft hover:text-brand-accent transition-colors flex items-center gap-2" data-theme-value="light" role="menuitem">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+        Claro
+      </button>
+      <button class="theme-option w-full text-left px-4 py-2 text-sm text-brand-text hover:bg-brand-soft hover:text-brand-accent transition-colors flex items-center gap-2" data-theme-value="dark" role="menuitem">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        Oscuro
+      </button>
+      <button class="theme-option w-full text-left px-4 py-2 text-sm text-brand-text hover:bg-brand-soft hover:text-brand-accent transition-colors flex items-center gap-2" data-theme-value="system" role="menuitem">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+        Sistema
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Script se ejecuta en cliente después del DOM interactivo
+  function updateThemeUI() {
+    const storedTheme = localStorage.getItem("theme");
+    
+    // Ocultar todos
+    document.getElementById('icon-light')?.classList.add('hidden');
+    document.getElementById('icon-dark')?.classList.add('hidden');
+    document.getElementById('icon-system')?.classList.add('hidden');
+
+    // Resetear opciones
+    document.querySelectorAll('.theme-option').forEach(btn => {
+      btn.classList.remove('text-brand-accent', 'font-bold');
+    });
+
+    if (storedTheme === 'dark') {
+      document.getElementById('icon-dark')?.classList.remove('hidden');
+      document.querySelector('[data-theme-value="dark"]')?.classList.add('text-brand-accent', 'font-bold');
+    } else if (storedTheme === 'light') {
+      document.getElementById('icon-light')?.classList.remove('hidden');
+      document.querySelector('[data-theme-value="light"]')?.classList.add('text-brand-accent', 'font-bold');
+    } else {
+      document.getElementById('icon-system')?.classList.remove('hidden');
+      document.querySelector('[data-theme-value="system"]')?.classList.add('text-brand-accent', 'font-bold');
+    }
+  }
+
+  // Inicializar UI
+  updateThemeUI();
+
+  const toggleBtn = document.getElementById('theme-toggle-btn');
+  const dropdown = document.getElementById('theme-dropdown');
+
+  // Toggle dropdown
+  toggleBtn?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const isExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
+    toggleBtn.setAttribute('aria-expanded', String(!isExpanded));
+    dropdown?.classList.toggle('hidden');
+  });
+
+  // Cerrar dropdown clickeando afuera
+  document.addEventListener('click', () => {
+    toggleBtn?.setAttribute('aria-expanded', 'false');
+    dropdown?.classList.add('hidden');
+  });
+
+  // Opciones de tema
+  document.querySelectorAll('.theme-option').forEach(option => {
+    option.addEventListener('click', (e) => {
+      const themeValue = (e.currentTarget as HTMLButtonElement).dataset.themeValue;
+      if (themeValue && window.setTheme) {
+        window.setTheme(themeValue);
+        updateThemeUI();
+      }
+    });
+  });
+</script>

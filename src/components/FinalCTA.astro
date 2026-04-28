@@ -1,0 +1,35 @@
+---
+import { WHATSAPP_LINK } from '../consts';
+---
+
+<section class="py-24 md:py-32 relative overflow-hidden">
+  <!-- Decoración técnica de fondo -->
+  <div class="absolute inset-0 opacity-5" style="background-image: radial-gradient(var(--text) 1px, transparent 1px); background-size: 24px 24px;"></div>
+  
+  <div class="max-w-7xl mx-auto px-6 relative z-10 text-center">
+    <div class="w-20 h-px bg-brand-accent mx-auto mb-12"></div>
+    
+    <h2 class="text-4xl md:text-7xl lg:text-8xl tracking-tight leading-[1.1] mb-10 font-display">
+      ¿Ya tienes un logo o <br />
+      diseño para bordar?
+    </h2>
+    
+    <p class="text-xl md:text-2xl text-brand-text opacity-70 max-w-2xl mx-auto mb-12 leading-relaxed">
+      Envíanos tu diseño, cantidad y tipo de prenda. Te orientamos con la mejor opción para tu bordado.
+    </p>
+
+    <div class="flex flex-col items-center gap-6">
+      <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" class="btn-primary text-xl md:text-2xl !px-12 !py-6 group" style="--button-bg: var(--accent); --button-text: var(--surface); --button-border: var(--accent);" data-track="whatsapp_click" data-cta-location="final_cta">
+        Cotizar por WhatsApp
+        <svg xmlns="http://www.w3.org/2000/svg" class="ml-4 w-6 h-6 transition-transform group-hover:translate-x-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+      </a>
+      
+      <p class="text-sm tracking-wide text-brand-text opacity-60">
+        Con un logo, imagen o referencia podemos empezar a orientarte.
+      </p>
+    </div>
+  </div>
+
+  <!-- Líneas técnicas de cierre -->
+  <div class="absolute bottom-0 left-0 w-full h-1 bg-brand-accent"></div>
+</section>
