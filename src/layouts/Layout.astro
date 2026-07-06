@@ -17,7 +17,7 @@ const { title, description } = Astro.props;
 const localBusinessData = {
 	"@context": "https://schema.org",
 	"@type": "ProfessionalService",
-	"name": "Bordados Córdoba",
+	"name": "Uniformes y Bordados Córdoba",
 	"image": "/brand/logo-grafito.svg", 
 	"telephone": WHATSAPP_NUMBER,
 	"address": {
@@ -115,5 +115,25 @@ const localBusinessData = {
 	<body class="bg-brand-bg text-brand-text font-sans antialiased selection:bg-brand-accent selection:text-white">
 		<AnalyticsBody />
 		<slot />
+
+		<script>
+			document.addEventListener('DOMContentLoaded', () => {
+				const revealElements = document.querySelectorAll('.reveal');
+				
+				const observer = new IntersectionObserver((entries) => {
+					entries.forEach((entry) => {
+						if (entry.isIntersecting) {
+							entry.target.classList.add('active');
+							observer.unobserve(entry.target);
+						}
+					});
+				}, {
+					threshold: 0.05,
+					rootMargin: '0px 0px -40px 0px'
+				});
+
+				revealElements.forEach((el) => observer.observe(el));
+			});
+		</script>
 	</body>
 </html>

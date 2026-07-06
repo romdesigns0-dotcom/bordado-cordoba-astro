@@ -22,5 +22,8 @@
   "devDependencies": {
     "@playwright/test": "^1.59.1",
     "firebase-tools": "^15.15.0"
+  },
+  "overrides": {
+    "vite": "^7.0.0"
   }
 }

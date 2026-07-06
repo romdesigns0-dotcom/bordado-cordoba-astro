@@ -112,4 +112,66 @@
     position: relative;
     z-index: 10;
   }
+
+  /* Microinteracciones Premium */
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-up {
+    opacity: 0;
+    animation: fade-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  /* Fade-up suave al hacer scroll */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  
+  .reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Transición sutil en imágenes y SVG */
+  .transition-premium {
+    @apply transition-all duration-500;
+    transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* Hover sutil en cards de servicio / galería */
+  .hover-card-premium {
+    @apply transition-all duration-500 hover:-translate-y-1 hover:shadow-lg;
+  }
+
+  /* Respetar prefers-reduced-motion */
+  @media (prefers-reduced-motion: reduce) {
+    .animate-fade-up,
+    .animate-fade-in,
+    .animate-fade-in *,
+    .reveal,
+    .reveal.active,
+    .btn-primary,
+    .btn-secondary,
+    .transition-premium,
+    .hover-card-premium,
+    .group-hover\:translate-x-1,
+    .group-hover\:translate-y-0\.5,
+    .group-hover\:translate-x-2,
+    .group-hover\:scale-110 {
+      animation: none !important;
+      transition: none !important;
+      transform: none !important;
+      opacity: 1 !important;
+    }
+  }
 }

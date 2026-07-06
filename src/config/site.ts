@@ -2,7 +2,7 @@
 
 export const SITE_CONFIG = {
   siteUrl: "https://bordadoscordoba.com", // [Pendiente]
-  businessName: "Bordados Córdoba",
+  businessName: "Uniformes y Bordados Córdoba",
   whatsappNumber: "+529512078403",
   whatsappUrl: "https://wa.me/529512078403",
   

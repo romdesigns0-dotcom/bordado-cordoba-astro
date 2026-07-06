@@ -1,0 +1,159 @@
+---
+import SectionLabel from './SectionLabel.astro';
+import { WHATSAPP_LINK } from '../consts';
+
+const galleryItems = [
+  {
+    id: "LOG-01",
+    category: "Logos Bordados",
+    spec: "LOGOTIPOS",
+    desc: "Digitalización de logotipos corporativos y marcas locales con alta definición de puntada.",
+    details: "Hilos de poliéster de alta calidad | Densidad optimizada",
+    whatsappMsg: "Hola, quiero cotizar un logotipo bordado similar al de la galería (LOG-01).",
+    svgPath: "M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" // Capas/Páginas/Puntadas
+  },
+  {
+    id: "UNI-02",
+    category: "Uniformes",
+    spec: "CORPORATIVO",
+    desc: "Personalización técnica para uniformes comerciales, industriales y escolares.",
+    details: "Bordado en pecho o espalda | Hilos de alta resistencia al lavado",
+    whatsappMsg: "Hola, quiero cotizar uniformes bordados similares al de la galería (UNI-02).",
+    svgPath: "M20.38 3.46L16 2.14l-4 4-4-4-4.38 1.32a2 2 0 0 0-1.38 1.9v5.77a2 2 0 0 0 .58 1.42l6 6a2 2 0 0 0 2.83 0l6-6a2 2 0 0 0 .58-1.42V5.36a2 2 0 0 0-1.38-1.9z" // Escudo / Prenda
+  },
+  {
+    id: "PRE-03",
+    category: "Playeras y Gorras",
+    spec: "ACCESORIOS",
+    desc: "Prendas promocionales y corporativas listas para eventos o uso diario.",
+    details: "Bastidores circulares y de gorras | Bordado plano y relieve",
+    whatsappMsg: "Hola, me interesa cotizar playeras y gorras bordadas como en la galería (PRE-03).",
+    svgPath: "M18 10h-1.26A8 8 0 1 0 9 20h9a4 4 0 0 0 4-4v-2a4 4 0 0 0-4-4z" // Gorra / Perfil de prenda
+  },
+  {
+    id: "PRE-04",
+    category: "Batas y Camisas",
+    spec: "PRENDA",
+    desc: "Identificación de personal médico, administrativo y operativo con acabados limpios.",
+    details: "Nombres individuales y logotipos con tipografía clara",
+    whatsappMsg: "Hola, quiero cotizar bordados en batas o camisas (PRE-04).",
+    svgPath: "M20.38 3.46L16 2.14 12 6 8 2.14 3.62 3.46A2 2 0 0 0 2 5.36V20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V5.36a2 2 0 0 0-1.62-1.9z" // Camisa
+  },
+  {
+    id: "TEX-05",
+    category: "Toallas, Sábanas y Fundas",
+    spec: "TEXTIL",
+    desc: "Bordado de gran formato para hotelería, clínicas, spas y uso residencial.",
+    details: "Bordados aptos para procesos de lavado industrial",
+    whatsappMsg: "Hola, quiero cotizar bordados en toallas o sábanas (TEX-05).",
+    svgPath: "M4 3h16a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm0 4h16M4 11h16M4 15h16" // Líneas de tejido / Toalla
+  },
+  {
+    id: "TALLER-06",
+    category: "Precisión Técnica",
+    spec: "TALLER",
+    desc: "Operación con maquinaria industrial multi-cabezal para pedidos individuales o volumen.",
+    details: "Calibración digital de tensión y lubricación constante",
+    whatsappMsg: "Hola, me gustaría saber más sobre la capacidad de producción (TALLER-06).",
+    svgPath: "M6 5h12M6 19h12M8 5v14M10 5v14M12 5v14M14 5v14M16 5v14" // Carrete de hilos / Spool
+  }
+];
+---
+
+<section id="galeria" class="border-t border-brand-border bg-brand-bg relative overflow-hidden reveal">
+  <!-- Retícula de fondo específica de área de bordado -->
+  <div class="absolute inset-0 opacity-[0.03] dark:opacity-[0.05] pointer-events-none" style="background-image: radial-gradient(var(--text) 1px, transparent 1px); background-size: 16px 16px;"></div>
+
+  <div class="max-w-7xl mx-auto px-6 py-24 md:py-32 relative z-10">
+    <!-- Encabezado de Sección -->
+    <SectionLabel number="02" text="Galería de Trabajos" />
+
+    <div class="grid grid-cols-1 lg:grid-cols-[1fr_400px] gap-12 mb-20 items-end">
+      <div>
+        <h2 class="text-5xl md:text-7xl lg:text-8xl tracking-tight leading-[1.1]">
+          Precisión en <br />
+          <span class="text-brand-accent font-bold italic text-[0.9em]">cada puntada</span>
+        </h2>
+      </div>
+      <p class="text-brand-secondary text-lg md:text-xl leading-relaxed border-l border-brand-border pl-8">
+        Muestra del proceso técnico y los acabados que logramos en diferentes tipos de prendas y materiales textiles.
+      </p>
+    </div>
+
+    <!-- Grid de la Galería -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0 border-t border-l border-brand-border">
+      {galleryItems.map((item) => {
+        const linkUrl = `${WHATSAPP_LINK}?text=${encodeURIComponent(item.whatsappMsg)}`;
+        return (
+          <div class="group flex flex-col justify-between border-r border-b border-brand-border p-6 md:p-8 hover:bg-brand-soft/30 transition-all duration-500 relative">
+            
+            {/* Visual Placeholder Técnico (Anti-genérico) */}
+            <div class="aspect-[4/3] bg-brand-soft border border-brand-border/60 relative overflow-hidden flex items-center justify-center mb-6">
+              
+              {/* Retícula técnica interna de bastidor */}
+              <div class="absolute inset-0 opacity-[0.05] dark:opacity-[0.08]" style="background-image: linear-gradient(var(--text) 1px, transparent 1px), linear-gradient(90deg, var(--text) 1px, transparent 1px); background-size: 20px 20px;"></div>
+              
+              {/* Círculo que simula el bastidor de bordado (Hoop) */}
+              <div class="absolute w-40 h-40 rounded-full border border-brand-accent/20 flex items-center justify-center">
+                <div class="absolute w-[92%] h-[92%] rounded-full border border-dashed border-brand-accent/15"></div>
+              </div>
+
+              {/* Dibujo Vectorial SVG Técnico representativo */}
+              <svg 
+                xmlns="http://www.w3.org/2000/svg" 
+                viewBox="0 0 24 24" 
+                fill="none" 
+                stroke="currentColor" 
+                stroke-width="1.2" 
+                stroke-linecap="round" 
+                stroke-linejoin="round" 
+                class="w-12 h-12 text-brand-text/60 group-hover:text-brand-accent transition-all duration-700 group-hover:scale-110"
+              >
+                <path d={item.svgPath}></path>
+              </svg>
+
+              {/* Detalles técnicos en las esquinas */}
+              <span class="absolute top-3 left-3 text-[9px] font-mono tracking-widest text-brand-muted/70 font-bold">{item.id}</span>
+              <span class="absolute top-3 right-3 text-[9px] font-mono tracking-widest text-brand-accent/80 font-bold">{item.spec}</span>
+              
+              {/* Cruces de calibración en esquinas */}
+              <div class="absolute bottom-3 left-3 w-2.5 h-2.5 flex items-center justify-center opacity-30">
+                <div class="w-full h-px bg-brand-text absolute"></div>
+                <div class="h-full w-px bg-brand-text absolute"></div>
+              </div>
+              <div class="absolute bottom-3 right-3 w-2.5 h-2.5 flex items-center justify-center opacity-30">
+                <div class="w-full h-px bg-brand-text absolute"></div>
+                <div class="h-full w-px bg-brand-text absolute"></div>
+              </div>
+            </div>
+
+            {/* Información Técnica */}
+            <div class="flex-grow flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between mb-2">
+                  <h3 class="text-xl font-display font-bold text-brand-text">{item.category}</h3>
+                </div>
+                <p class="text-sm text-brand-secondary leading-relaxed mb-4">{item.desc}</p>
+                <p class="text-[10px] font-mono text-brand-muted uppercase tracking-wider mb-6 border-t border-brand-border/40 pt-3">{item.details}</p>
+              </div>
+
+              {/* Botón de Cotización Directo */}
+              <a 
+                href={linkUrl}
+                target="_blank" 
+                rel="noopener noreferrer" 
+                class="inline-flex items-center justify-between w-full px-4 py-2.5 border border-brand-border hover:border-brand-accent bg-transparent hover:bg-brand-accent text-brand-text hover:text-brand-text-invert transition-all duration-300 font-sans text-xs uppercase tracking-wider font-semibold group/btn"
+                data-track="whatsapp_click"
+                data-cta-location="gallery_item"
+              >
+                <span>Cotizar un trabajo similar</span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 transition-transform group-hover/btn:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </a>
+            </div>
+
+          </div>
+        );
+      })}
+    </div>
+  </div>
+</section>

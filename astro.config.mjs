@@ -5,8 +5,11 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://bordados-cordoba.web.app',
+  site: 'https://bordadoscordoba.com',
   vite: {
-    plugins: [tailwindcss()]
+    plugins: [tailwindcss()],
+    server: {
+      allowedHosts: true
+    }
   }
 });
