@@ -1,54 +1,64 @@
-# Documentación de Despliegue (Deploy) Automatizado
+# Documentacion de despliegue automatizado
 
-Esta documentación detalla la configuración del despliegue continuo (CI/CD) de la landing de Bordados Córdoba hacia Firebase Hosting mediante GitHub Actions.
+Esta documentacion describe como se publica la landing de Bordados Cordoba en Firebase Hosting usando GitHub Actions.
 
-## Arquitectura de Despliegue
-- **Framework:** Astro (Generación Estática de Sitios - SSG).
-- **Hosting:** Firebase Hosting Clásico (NO App Hosting, NO Cloud Run).
-- **CI/CD:** GitHub Actions (Compilación vía `pnpm build` y despliegue nativo).
+## Arquitectura de despliegue
+- **Framework:** Astro en modo estatico.
+- **Hosting:** Firebase Hosting clasico.
+- **CI/CD:** GitHub Actions compila con `pnpm run build` y publica en Firebase.
 
-## Workflows Configurados
-Se han generado dos flujos automáticos en `.github/workflows/`:
-1. **Deploy to Firebase Hosting on PR**: Cuando se abre un *Pull Request*, genera una URL temporal de previsualización (Preview URL) sin afectar la página en vivo.
-2. **Deploy to Firebase Hosting on merge**: Cuando haces un `push` o `merge` a la rama `master`, despliega automáticamente la página en el dominio principal en vivo (`channelId: live`).
+## Workflows configurados
+En [firebase-hosting-merge.yml](C:/Users/Romar/Documents/bordado-cordoba-astro/.github/workflows/firebase-hosting-merge.yml) y [firebase-hosting-pull-request.yml](C:/Users/Romar/Documents/bordado-cordoba-astro/.github/workflows/firebase-hosting-pull-request.yml) ya quedan definidos estos flujos:
 
-## Requisito: Autenticación entre GitHub y Firebase
-Para que GitHub Actions tenga permiso de publicar en tu cuenta de Firebase, **debes realizar la vinculación**. Tienes dos métodos para hacerlo:
+1. `Deploy to Firebase Hosting on PR`: crea una preview URL para pull requests del mismo repositorio.
+2. `Deploy to Firebase Hosting on merge`: publica automaticamente a `live` cuando hay push a `master` o `main`.
+3. `workflow_dispatch`: permite lanzar manualmente el deploy live desde la pestaña **Actions**.
 
-### Método 1: Automático (Recomendado)
-Abre una terminal en tu computadora (donde ya estés logueado en Firebase) en la carpeta del proyecto y ejecuta:
+## Secreto requerido en GitHub
+Los workflows actuales usan este secreto:
+
+```text
+FIREBASE_SERVICE_ACCOUNT_BORDADOS_CORDOBA
+```
+
+Ese secreto debe contener el JSON de una service account con permisos para Firebase Hosting en el proyecto:
+
+```text
+bordados-cordoba
+```
+
+## Forma recomendada de vincular GitHub con Firebase
+Desde una terminal autenticada en Firebase, dentro de este proyecto, ejecuta:
 
 ```bash
 firebase init hosting:github
 ```
 
-**¿Qué te va a pedir?**
-- Seleccionar tu proyecto de Firebase (ej. `bordados-cordoba`).
-- Qué repositorio de GitHub usar (ej. `romdesigns0-dotcom/bordado-cordoba-astro`).
-- Autenticarte en el navegador para dar acceso a GitHub.
-- Configurar script de build (`pnpm run build`).
+Eso normalmente crea o actualiza:
+- La service account en Google Cloud.
+- El secreto del repositorio en GitHub.
+- Los permisos para que GitHub Actions pueda desplegar.
 
-**¿Qué hace por detrás?**
-Genera automáticamente una cuenta de servicio (Service Account) en Google Cloud, le asigna los permisos necesarios de Hosting, y crea el secreto `FIREBASE_SERVICE_ACCOUNT_[TU_PROYECTO]` dentro de tu repositorio de GitHub.
+## Verificacion minima
+1. Revisa en GitHub `Settings > Secrets and variables > Actions`.
+2. Confirma que existe `FIREBASE_SERVICE_ACCOUNT_BORDADOS_CORDOBA`.
+3. Haz push a `master` o `main`.
+4. Abre la accion `Deploy to Firebase Hosting on merge`.
+5. Verifica que el deploy termine en estado exitoso.
 
-### Método 2: Manual (Si fallara la terminal)
-Si no puedes usar la terminal, debes hacerlo manualmente en GitHub:
-1. Ve a [Google Cloud Console](https://console.cloud.google.com/), selecciona tu proyecto de Firebase.
-2. Ve a **IAM y Administración** > **Cuentas de servicio**.
-3. Crea una nueva y dale el rol **"Administrador de Firebase Hosting"**.
-4. Genera y descarga una clave en formato JSON.
-5. Ve a tu repositorio en GitHub > **Settings** > **Secrets and variables** > **Actions**.
-6. Crea un nuevo "New repository secret" llamado `FIREBASE_SERVICE_ACCOUNT`.
-7. Pega todo el contenido del archivo JSON dentro del secreto.
+## Despliegue manual local
+Si necesitas publicar sin pasar por GitHub:
 
-> **Importante:** Actualmente los archivos YAML de workflows generados usan el secreto genérico `FIREBASE_SERVICE_ACCOUNT`. Si usas el Método 1, el CLI de Firebase podría crear un secreto con nombre específico (ej. `FIREBASE_SERVICE_ACCOUNT_BORDADOS_CORDOBA`). En ese caso, asegúrate de actualizar el nombre del secreto en los archivos `.yml` que hemos creado, así como el `projectId` real.
+```bash
+pnpm run deploy:hosting
+```
 
-## Prohibiciones Estrictas de Firebase
-Para mantener los costos a cero y la infraestructura simple, el proyecto **NO DEBE** utilizar:
+## Restricciones del proyecto
+Este proyecto debe seguir usando solo hosting estatico. No se debe agregar:
 - Firebase App Hosting
 - Cloud Functions
-- Cloud Run / Docker
-- Firestore / Realtime Database
+- Cloud Run
+- Firestore
+- Realtime Database
 - Authentication
 - Cloud Storage
-- Plan Blaze (No es necesario activarlo a menos que las peticiones excedan la capa gratuita generosa del hosting estático).
