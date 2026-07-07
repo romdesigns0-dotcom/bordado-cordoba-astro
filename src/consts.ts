@@ -1,4 +1,5 @@
 export const WHATSAPP_NUMBER = "951 207 8403";
+export const PHONE_LINK = "tel:+529512078403";
 export const WHATSAPP_LINK = "https://wa.me/529512078403";
 
 export const WHATSAPP_MESSAGE = `Hola, quiero cotizar un bordado. Tengo esta información:
