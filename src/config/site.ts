@@ -1,19 +1,17 @@
-// [Pendiente] Reemplazar placeholders por IDs reales cuando se despliegue a producción
-
 export const SITE_CONFIG = {
-  siteUrl: "https://bordadoscordoba.com", // [Pendiente]
+  siteUrl: "https://bordados-cordoba.web.app",
   businessName: "Uniformes y Bordados Córdoba",
   whatsappNumber: "+529512078403",
   whatsappUrl: "https://wa.me/529512078403",
-  
+
   // Analytics & Tracking
-  // Si se usa GTM, gaMeasurementId no cargará el script directo de GA4 para evitar duplicidad.
-  gaMeasurementId: "G-XXXXXXXXXX", // [Pendiente] Google Analytics 4 ID
+  // Si se usa GTM, gaMeasurementId no cargara el script directo de GA4 para evitar duplicidad.
+  gaMeasurementId: "G-XXXXXXXXXX",
   gtmId: "GTM-MCBKSP7R", // Configurado
-  
+
   // Firebase
   firebaseProjectId: "bordados-cordoba",
-  
+
   // Social
   ogImage: "/og/bordados-cordoba-og.png"
 };
