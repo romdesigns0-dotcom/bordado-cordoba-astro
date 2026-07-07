@@ -66,6 +66,10 @@
     @apply font-sans antialiased transition-colors duration-300;
   }
 
+  html {
+    font-size: 85%;
+  }
+
   h1, h2, h3, h4, h5, h6 {
     @apply font-display font-normal;
   }
