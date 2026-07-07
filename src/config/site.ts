@@ -5,8 +5,7 @@ export const SITE_CONFIG = {
   whatsappUrl: "https://wa.me/529512078403",
 
   // Analytics & Tracking
-  // Si se usa GTM, gaMeasurementId no cargara el script directo de GA4 para evitar duplicidad.
-  gaMeasurementId: "G-XXXXXXXXXX",
+  gaMeasurementId: "G-35TRHYNFFL",
   gtmId: "GTM-MCBKSP7R", // Configurado
 
   // Firebase

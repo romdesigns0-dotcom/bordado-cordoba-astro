@@ -8,7 +8,7 @@ const isGtmValid = gtmId && gtmId.startsWith('GTM-') && gtmId !== 'GTM-XXXXXXX';
 const isGaValid = gaMeasurementId && gaMeasurementId.startsWith('G-') && gaMeasurementId !== 'G-XXXXXXXXXX';
 ---
 
-{isGtmValid ? (
+{isGtmValid && (
   <!-- Google Tag Manager -->
   <script is:inline define:vars={{ gtmId }}>
     (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -18,16 +18,19 @@ const isGaValid = gaMeasurementId && gaMeasurementId.startsWith('G-') && gaMeasu
     })(window,document,'script','dataLayer',gtmId);
   </script>
   <!-- End Google Tag Manager -->
-) : isGaValid ? (
+) }
+
+{isGaValid && (
   <!-- Google Analytics (Global site tag) -->
   <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`}></script>
   <script is:inline define:vars={{ gaMeasurementId }}>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
+    window.gtag = gtag;
     gtag('js', new Date());
     gtag('config', gaMeasurementId);
   </script>
-) : null}
+)}
 
 <!-- Conversion Tracking Script -->
 <script is:inline>
