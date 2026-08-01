@@ -1,9 +1,10 @@
 ---
 import { SITE_CONFIG } from '../config/site';
 
-const { gaMeasurementId, gtmId, clarityProjectId } = SITE_CONFIG;
+const { gaMeasurementId, googleAdsConversionId, gtmId, clarityProjectId } = SITE_CONFIG;
 
 const isGaValid = gaMeasurementId && gaMeasurementId.startsWith('G-') && gaMeasurementId !== 'G-XXXXXXXXXX';
+const isGoogleAdsValid = googleAdsConversionId && googleAdsConversionId.startsWith('AW-');
 const isGtmValid = gtmId && gtmId.startsWith('GTM-') && gtmId !== 'GTM-XXXXXXX';
 const isClarityValid = clarityProjectId && /^[a-z0-9]+$/i.test(clarityProjectId);
 ---
@@ -20,15 +21,20 @@ const isClarityValid = clarityProjectId && /^[a-z0-9]+$/i.test(clarityProjectId)
   <!-- End Google Tag Manager -->
 )}
 
-{isGaValid && (
+{(isGaValid || isGoogleAdsValid) && (
   <!-- Google Analytics (Global site tag) -->
-  <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`}></script>
-  <script is:inline define:vars={{ gaMeasurementId }}>
+  <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId || googleAdsConversionId}`}></script>
+  <script is:inline define:vars={{ gaMeasurementId, googleAdsConversionId, isGaValid, isGoogleAdsValid }}>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     window.gtag = gtag;
     gtag('js', new Date());
-    gtag('config', gaMeasurementId);
+    if (isGaValid) {
+      gtag('config', gaMeasurementId);
+    }
+    if (isGoogleAdsValid) {
+      gtag('config', googleAdsConversionId);
+    }
   </script>
 )}
 
