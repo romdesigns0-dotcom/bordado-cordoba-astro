@@ -1,4 +1,8 @@
 User-agent: *
 Allow: /
 
+# Permite que ChatGPT Search descubra y cite las páginas públicas.
+User-agent: OAI-SearchBot
+Allow: /
+
 Sitemap: https://bordados-cordoba.web.app/sitemap-index.xml

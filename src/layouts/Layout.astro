@@ -5,22 +5,32 @@ import SEO from '../components/SEO.astro';
 import JsonLd from '../components/JsonLd.astro';
 import Analytics from '../components/Analytics.astro';
 import AnalyticsBody from '../components/AnalyticsBody.astro';
-import { WHATSAPP_NUMBER } from '../consts';
+import { WHATSAPP_LINK, WHATSAPP_NUMBER } from '../consts';
 import { SITE_CONFIG } from '../config/site';
 
 interface Props {
 	title?: string;
 	description?: string;
+	canonical?: string;
 }
 
-const { title, description } = Astro.props;
+const { title, description, canonical } = Astro.props;
 
 const localBusinessData = {
 	"@context": "https://schema.org",
 	"@type": "ProfessionalService",
 	"name": "Uniformes y Bordados Córdoba",
-	"image": "/brand/logo-grafito.svg",
+	"image": new URL("/brand/logo-grafito.svg", SITE_CONFIG.siteUrl).toString(),
 	"telephone": WHATSAPP_NUMBER,
+	"url": SITE_CONFIG.siteUrl,
+	"description": "Taller de uniformes y bordado computarizado profesional en Oaxaca de Juárez. Bordado de logos, gorras, prendas y textiles personalizados.",
+	"contactPoint": {
+		"@type": "ContactPoint",
+		"contactType": "sales",
+		"telephone": "+529512078403",
+		"url": WHATSAPP_LINK,
+		"availableLanguage": "es-MX"
+	},
 	"address": {
 		"@type": "PostalAddress",
 		"streetAddress": "Cuauhtémoc 111, Trinidad de las Huertas",
@@ -29,12 +39,32 @@ const localBusinessData = {
 		"postalCode": "68000",
 		"addressCountry": "MX"
 	},
+	"areaServed": [
+		{
+			"@type": "City",
+			"name": "Oaxaca de Juárez"
+		},
+		{
+			"@type": "AdministrativeArea",
+			"name": "Oaxaca"
+		}
+	],
 	"geo": {
 		"@type": "GeoCoordinates",
 		"latitude": "17.0545",
 		"longitude": "-96.7196"
 	},
-	"url": SITE_CONFIG.siteUrl,
+	"hasOfferCatalog": {
+		"@type": "OfferCatalog",
+		"name": "Servicios de bordado y uniformes",
+		"itemListElement": [
+			{ "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Bordado de logos" } },
+			{ "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Bordado de uniformes" } },
+			{ "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Gorras bordadas" } },
+			{ "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Digitalización para bordado" } },
+			{ "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Bordado personalizado en textiles" } }
+		]
+	},
 	"openingHoursSpecification": [
 		{
 			"@type": "OpeningHoursSpecification",
@@ -110,7 +140,7 @@ const localBusinessData = {
 		</script>
 
 		<Analytics />
-		<SEO {title} {description} />
+		<SEO {title} {description} {canonical} />
 		<JsonLd data={localBusinessData} />
 	</head>
 	<body class="bg-brand-bg text-brand-text font-sans antialiased selection:bg-brand-accent selection:text-white">
