@@ -6,6 +6,7 @@ export const SITE_CONFIG = {
 
   // Analytics & Tracking
   gaMeasurementId: "G-35TRHYNFFL",
+  gtmId: "GTM-T7QB5675",
   clarityProjectId: "xvsjqs04kc",
 
   // Firebase
