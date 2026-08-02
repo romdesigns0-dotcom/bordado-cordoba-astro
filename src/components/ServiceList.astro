@@ -6,32 +6,38 @@ const services = [
   {
     id: "01",
     title: "Uniformes personalizados y empresariales",
-    description: "Personalización completa de camisas, playeras tipo polo, batas, mandiles y uniformes corporativos, médicos o industriales."
+    description: "Personalización completa de camisas, playeras tipo polo, batas, mandiles y uniformes corporativos, médicos o industriales.",
+    href: "/uniformes-bordados-oaxaca/"
   },
   {
     id: "02",
     title: "Bordado de logos para negocios y marcas",
-    description: "Logos bordados para marcas, negocios locales, restaurantes, hoteles, escuelas y emprendimientos."
+    description: "Logos bordados para marcas, negocios locales, restaurantes, hoteles, escuelas y emprendimientos.",
+    href: "/bordado-de-logos-oaxaca/"
   },
   {
     id: "03",
     title: "Gorras bordadas y prendas personalizadas",
-    description: "Personalización de gorras, camisas, playeras, batas, mandiles y otras prendas bajo cotización."
+    description: "Personalización de gorras, camisas, playeras, batas, mandiles y otras prendas bajo cotización.",
+    href: "/gorras-bordadas-oaxaca/"
   },
   {
     id: "04",
     title: "Nombres e iniciales",
-    description: "Bordado de nombres, iniciales y detalles personalizados para piezas individuales o pedidos especiales."
+    description: "Bordado de nombres, iniciales y detalles personalizados para piezas individuales o pedidos especiales.",
+    href: "/bordados-personalizados-oaxaca/"
   },
   {
     id: "05",
     title: "Textiles personalizados",
-    description: "Bordado en toallas, batas, mandiles, servilletas u otros textiles para uso comercial o personal."
+    description: "Bordado en toallas, batas, mandiles, servilletas u otros textiles para uso comercial o personal.",
+    href: "/bordados-personalizados-oaxaca/"
   },
   {
     id: "06",
     title: "Digitalización y ponchado para bordado",
-    description: "Preparamos tu diseño para convertirlo en puntadas claras y bordables."
+    description: "Preparamos tu diseño para convertirlo en puntadas claras y bordables.",
+    href: "/bordado-de-logos-oaxaca/"
   }
 ];
 ---
@@ -57,7 +63,8 @@ const services = [
       <ServiceItem 
         id={service.id} 
         title={service.title} 
-        description={service.description} 
+        description={service.description}
+        href={service.href}
       />
     ))}
   </div>

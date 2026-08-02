@@ -1,0 +1,93 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppButton from '../components/WhatsAppButton.astro';
+import JsonLd from '../components/JsonLd.astro';
+import { CONTACT_ADDRESS, WHATSAPP_LINK_WITH_MESSAGE } from '../consts';
+import { SITE_CONFIG } from '../config/site';
+import { SERVICE_PAGES } from '../config/servicePages';
+
+export function getStaticPaths() {
+  return SERVICE_PAGES.map((page) => ({
+    params: { slug: page.slug },
+    props: { page }
+  }));
+}
+
+const { page } = Astro.props;
+const pageUrl = new URL(`/${page.slug}/`, SITE_CONFIG.siteUrl).toString();
+
+const serviceData = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: `${page.serviceName} en Oaxaca`,
+  description: page.metaDescription,
+  keywords: page.keywords.join(', '),
+  url: pageUrl,
+  provider: {
+    '@type': 'ProfessionalService',
+    name: 'Uniformes y Bordados Córdoba',
+    url: SITE_CONFIG.siteUrl
+  },
+  areaServed: {
+    '@type': 'City',
+    name: 'Oaxaca de Juárez'
+  }
+};
+
+const breadcrumbData = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Inicio', item: SITE_CONFIG.siteUrl },
+    { '@type': 'ListItem', position: 2, name: page.serviceName, item: pageUrl }
+  ]
+};
+---
+
+<Layout title={page.title} description={page.metaDescription} canonical={`/${page.slug}/`}>
+  <JsonLd data={serviceData} />
+  <JsonLd data={breadcrumbData} />
+  <Header />
+
+  <main class="max-w-7xl mx-auto px-6 py-24 md:py-32">
+    <p class="text-[10px] uppercase tracking-[0.3em] font-black text-brand-accent mb-8">{page.eyebrow}</p>
+    <div class="max-w-4xl">
+      <h1 class="text-5xl md:text-7xl lg:text-8xl tracking-tight leading-[1.05] mb-10">
+        {page.h1}
+      </h1>
+      <p class="text-xl md:text-2xl text-brand-secondary leading-relaxed mb-12">
+        {page.intro}
+      </p>
+      <a href={WHATSAPP_LINK_WITH_MESSAGE} target="_blank" rel="noopener noreferrer" class="btn-primary inline-flex" data-track="click_quote" data-cta-location={`service_page_${page.slug}`}>
+        Cotizar por WhatsApp
+      </a>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-24">
+      {page.sections.map((section) => (
+        <article class="border border-brand-border bg-brand-soft p-8">
+          <h2 class="text-2xl font-display mb-4">{section.title}</h2>
+          <p class="text-brand-secondary leading-relaxed">{section.text}</p>
+        </article>
+      ))}
+    </div>
+
+    <section class="border-t border-brand-border mt-24 pt-16 max-w-4xl">
+      <h2 class="text-3xl md:text-5xl tracking-tight mb-6">Cómo cotizar {page.serviceName.toLowerCase()}</h2>
+      <p class="text-lg md:text-xl text-brand-secondary leading-relaxed mb-8">
+        Envía por WhatsApp tu diseño o referencia, tipo de prenda o textil, cantidad, tamaño aproximado y ubicación del bordado.
+      </p>
+      <p class="text-brand-secondary leading-relaxed">
+        Atención en {CONTACT_ADDRESS}. También podemos orientarte por WhatsApp antes de visitar el taller.
+      </p>
+      <a href={WHATSAPP_LINK_WITH_MESSAGE} target="_blank" rel="noopener noreferrer" class="inline-block text-brand-accent font-bold mt-8 hover:underline" data-track="click_whatsapp" data-cta-location={`service_page_${page.slug}`}>
+        Contactar a Uniformes y Bordados Córdoba
+      </a>
+    </section>
+  </main>
+
+  <Footer />
+  <WhatsAppButton />
+</Layout>
